@@ -15,19 +15,24 @@
 </template>
 
 <script>
+  import Store from './store'
 
   export default {
     name: 'todo-list',
 
     data() {
       return {
-        todos: [
-          {
-            id: 1,
-            title: 'a new todo list',
-            completed: false
-          }
-        ]
+        todos: Store.fetch()
+      }
+    },
+
+    watch: {
+      todos: {
+        handler(todos) {
+          Store.save(todos)
+        },
+
+        deep: true
       }
     },
 
