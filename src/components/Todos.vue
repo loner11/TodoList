@@ -47,13 +47,15 @@
   }
 </script>
 
-<style>
+<style lang="scss" rel="stylesheet/scss" scoped>
   .completed {
     color: #5cb85c;
     text-decoration: line-through;
   }
 
   .margin-right {
-    margin-right: 10px;
+    margin: {
+      right: 1em;
+    }
   }
 </style>

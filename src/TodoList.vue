@@ -39,8 +39,10 @@
   }
 </script>
 
-<style>
+<style lang="scss" rel="stylesheet/scss" scoped>
   #todo-list {
-    margin-top: 20px;
+    margin: {
+      top: 1.5em;
+    }
   }
 </style>
