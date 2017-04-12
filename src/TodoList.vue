@@ -1,34 +1,33 @@
 <template>
-  <div id="todo-list" class="container">
-    <div class="row">
-      <div class="col-md-offset-2 col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
-          <div class="panel-heading">TodoList</div>
-          <div class="panel-body">
-            <h3>My todolist amount ({{ amount }})</h3>
-            <router-view :todos="todos"></router-view>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div id="todolist">
+
+    <el-row :gutter="12">
+      <el-col :span="8" :offset="8">
+        <h2>😯{{ name }}😯</h2>
+      </el-col>
+    </el-row>
+
+    <todo-form :todos="todos"></todo-form>
   </div>
 </template>
 
 <script>
-  import Store from './store'
+  import TodoForm from './components/TodoForm.vue'
+  import Store from './store.js'
 
   export default {
-    name: 'todo-list',
+    name: 'todolist',
 
-    data() {
+    data () {
       return {
+        name: 'TodoList',
         todos: Store.fetch()
       }
     },
 
     watch: {
       todos: {
-        handler(todos) {
+        handler (todos) {
           Store.save(todos)
         },
 
@@ -36,18 +35,14 @@
       }
     },
 
-    computed: {
-      amount() {
-        return this.todos.length
-      }
+    components: {
+      TodoForm
     }
   }
 </script>
 
-<style lang="scss" rel="stylesheet/scss" scoped>
-  #todo-list {
-    margin: {
-      top: 1.5em;
-    }
+<style lang="scss" scoped>
+  h2 {
+    text-align: center;
   }
 </style>

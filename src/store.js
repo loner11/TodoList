@@ -1,7 +1,4 @@
-/**
- * Created by loner11 on 17-2-15.
- */
-const STORAGE_KEY = "todo-list";
+const STORAGE_KEY = "todolist";
 
 export default {
   fetch() {
